@@ -1,0 +1,13 @@
+main = ".open-next/worker.js"
+name = "planetary-todos-cf"
+compatibility_date = "2024-09-26"
+compatibility_flags = [ "nodejs_compat" ]
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+minify = true
+observability = { enabled = true }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "planetary-todos"
+database_id = "6aedf368-3dd3-410b-8636-a2cd89b767dc"
+migrations_dir = ".drizzle-out"

@@ -7,11 +7,20 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"deploy": "opennextjs-cloudflare && wrangler deploy",
-		"preview": "opennextjs-cloudflare && wrangler dev",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+		"build:worker": "opennextjs-cloudflare",
+		"dev:worker": "wrangler dev --port 8080",
+		"preview:worker": "pnpm build:worker && pnpm dev:worker",
+		"deploy:worker": "pnpm build:worker && wrangler deploy",
+		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+		"drizzle:generate": "drizzle-kit generate",
+		"drizzle:migrate": "drizzle-kit migrate",
+		"drizzle:dev": "drizzle-kit studio"
 	},
 	"dependencies": {
+		"@opennextjs/aws": "^3.5.2",
+		"drizzle-kit": "^0.30.5",
+		"drizzle-orm": "^0.40.0",
+		"jest-worker": "^29.7.0",
 		"next": "14.2.24",
 		"react": "^18",
 		"react-dom": "^18"
